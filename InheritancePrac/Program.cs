@@ -11,13 +11,22 @@ namespace InheritancePrac
     {
         class Parent
         {
+            public static int counter = 0;
+
             public Parent() { Console.WriteLine("Parent()"); }
             public Parent(int param) { Console.WriteLine("Parent(int param)"); }
             public Parent(string param) { Console.WriteLine("Parent(string param"); }
+
+            public void ContParent()
+            {
+                Parent.counter++;
+            }
         }
 
         class Child : Parent
         {
+            public void CountChild() { Child.counter++; }
+
             public Child() : base(10)
             {
                 Console.WriteLine("Child(): base(10)");
@@ -27,14 +36,10 @@ namespace InheritancePrac
                 Console.WriteLine("Child(string input):base(intput");
             }
         }
-
-
-
         static void Main(string[] args)
         {
             Child childA = new Child();
             Child childB = new Child("string");
-
             Dog d = new Dog();
             d.Public();
             //d.Protected();
