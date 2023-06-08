@@ -9,13 +9,36 @@ namespace InheritancePrac
 {
     internal class Program
     {
+        class Parent
+        {
+            public Parent() { Console.WriteLine("Parent()"); }
+            public Parent(int param) { Console.WriteLine("Parent(int param)"); }
+            public Parent(string param) { Console.WriteLine("Parent(string param"); }
+        }
+
+        class Child : Parent
+        {
+            public Child() : base(10)
+            {
+                Console.WriteLine("Child(): base(10)");
+            }
+            public Child(string input) : base(input)
+            {
+                Console.WriteLine("Child(string input):base(intput");
+            }
+        }
+
+
+
         static void Main(string[] args)
         {
+            Child childA = new Child();
+            Child childB = new Child("string");
+
             Dog d = new Dog();
             d.Public();
             //d.Protected();
             //d.Private();
-
             List<Animal> animals = new List<Animal>() {
                 new Dog(), new Dog(), new Dog(),
                 new Cat(), new Cat(), new Cat()
